@@ -21,8 +21,6 @@ function Home() {
   const isLoaded = useSelector(({ pizzas }) => pizzas.isLoaded);
   const { category, sortBy} = useSelector(({ filters }) => filters);
 
-  console.log(cartItems)
-
   React.useEffect(() => {
     dispatch(fetchPizzas(category, sortBy));
   }, [category, sortBy]);
@@ -56,7 +54,7 @@ function Home() {
                   onAddClickPizza={handleAddPizzaToCart} 
                   key={obj.id} 
                   // isLoading={true} 
-                  addedCount={cartItems[obj.id] && cartItems[obj.id].length}
+                  addedCount={cartItems[obj.id] && cartItems[obj.id].items.length}
                   {...obj}
                 />
                 )) 
